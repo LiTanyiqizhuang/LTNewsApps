@@ -12,14 +12,14 @@ class HomeComponent extends Component {
         return (
             
             <div >
-            {
-                test === null ? 
-                "loading" : 
-                <div>
-                    {test.work}
-                    {test.head}
-                </div>
-            } 
+                {
+                    test === null ? 
+                    "loading" : 
+                    <div>
+                        {test.work}
+                        {test.head}
+                    </div>
+                } 
             </div>
         );
     }
