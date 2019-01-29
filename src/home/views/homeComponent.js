@@ -27,10 +27,10 @@ class HomeComponent extends Component {
 }
 
 HomeComponent.propTypes = {
-        work: PropTypes.string.isRequired,
-        head: PropTypes.string.isRequired,
-        dispatchwork: PropTypes.func.isRequired,
-        dispatchhead: PropTypes.func.isRequired
+    work: PropTypes.string.isRequired,
+    head: PropTypes.string.isRequired,
+    dispatchwork: PropTypes.func.isRequired,
+    dispatchhead: PropTypes.func.isRequired
 }
 
 export default HomeComponent;

@@ -3,8 +3,8 @@ import { connect } from 'react-redux'
 import {changework, changehead} from '../actions'
 
 const mapStateToProps = state => ({
-    work: state.work,
-    head: state.head
+    work: state.changetest.work,
+    head: state.changetest.head
 })
 
 const mapDispatchToProps = dispatch => ({
