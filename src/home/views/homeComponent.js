@@ -1,29 +1,36 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types'
 
 class HomeComponent extends Component {
 
-    constructor(props){
-        super(props);
-    }
-
     render() {
-        const {test} = this.props
-
+        const {work} = this.props
+        const {head} = this.props
+        const {dispatchwork} = this.props
+        const {dispatchhead} = this.props
         return (
-            
             <div >
                 {
-                    test === null ? 
+                    work === null ? 
                     "loading" : 
                     <div>
-                        {test.work}
-                        {test.head}
+                        {work}
+                        {head}
                     </div>
                 } 
+                <div onClick={dispatchwork}> 点我生成WORK </div>
+                <div onClick={dispatchhead}> 点我生成HEAD </div>
             </div>
         );
     }
 
+}
+
+HomeComponent.propTypes = {
+        work: PropTypes.string.isRequired,
+        head: PropTypes.string.isRequired,
+        dispatchwork: PropTypes.func.isRequired,
+        dispatchhead: PropTypes.func.isRequired
 }
 
 export default HomeComponent;

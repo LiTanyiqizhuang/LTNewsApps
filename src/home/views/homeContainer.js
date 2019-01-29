@@ -1,31 +1,18 @@
-import React, { Component } from 'react';
 import HomeComponent from './homeComponent'
+import { connect } from 'react-redux'
+import {changework, changehead} from '../actions'
 
+const mapStateToProps = state => ({
+    work: state.work,
+    head: state.head
+})
 
-const json_test = {"work": "hello", "head" : "test"}
+const mapDispatchToProps = dispatch => ({
+    dispatchwork: () => dispatch(changework('您好')),
+    dispatchhead: () => dispatch(changehead('再见'))
+})
 
-class Home extends Component {
-
-    constructor (props) {
-        super(props);
-        this.state = {
-            json: null,
-        }
-    }
-
-    componentDidMount() {
-        this.setState({
-            json: json_test,
-        })
-    }
-
-    render() {
-        return (
-          <HomeComponent className="Home" test={this.state.json}>
-            首页内容
-          </HomeComponent>
-        );
-    }
-}
-    
-export default Home;
+export default connect(
+    mapStateToProps,
+    mapDispatchToProps
+)(HomeComponent)
