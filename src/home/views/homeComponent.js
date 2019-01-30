@@ -4,10 +4,7 @@ import PropTypes from 'prop-types'
 class HomeComponent extends Component {
 
     render() {
-        const {work} = this.props
-        const {head} = this.props
-        const {dispatchwork} = this.props
-        const {dispatchhead} = this.props
+        const {work,head,dispatchwork,dispatchhead} = this.props
         return (
             <div >
                 {
