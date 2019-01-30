@@ -1,8 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
 import { createStore } from 'redux'
-import App from './App';
 import { Provider } from 'react-redux'
 import * as serviceWorker from './serviceWorker';
 import appReducer from './home/index'
@@ -10,7 +8,6 @@ import HomeContainer from './home/views/homeContainer'
 
 const store = createStore(appReducer)
 
-ReactDOM.render(<App />, document.getElementById('root'));
 ReactDOM.render(
     <Provider store={store}>
         <HomeContainer />
