@@ -8,7 +8,7 @@ class HomeComponent extends Component {
         return (
             <div >
                 {
-                    work === null ? 
+                    !work && !head ? 
                     "loading" : 
                     <div>
                         {work}
