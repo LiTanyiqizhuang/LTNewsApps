@@ -1,12 +1,27 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { createStore } from 'redux'
+import { createStore, applyMiddleware  } from 'redux'
 import { Provider } from 'react-redux'
 import * as serviceWorker from './serviceWorker';
 import appReducer from './home/index'
 import HomeContainer from './home/views/homeContainer'
 
-const store = createStore(appReducer)
+const logger = store => next => action => {
+    console.log('dispatching', action)
+    let result = next(action)
+    console.log('next state', store.getState())
+    return result
+  }
+  
+  const crashReporter = store => next => action => {
+    try {
+      return next(action)
+    } catch (err) {
+      console.error('Caught an exception!', err)
+    }
+  }
+
+const store = createStore(appReducer, applyMiddleware(logger, crashReporter))
 
 ReactDOM.render(
     <Provider store={store}>
