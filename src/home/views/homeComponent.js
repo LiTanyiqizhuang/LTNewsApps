@@ -20,9 +20,11 @@ class HomeComponent extends Component {
                     !response ?
                     "NEWS_LOAGIND" :
                         response.map(data => {
-                            <div>
+                            return(
+                            <li>
                                 {data.title}
-                            </div>
+                            </li>
+                            )
                         })
                         
                 }
