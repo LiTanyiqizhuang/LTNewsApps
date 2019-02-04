@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 class HomeComponent extends Component {
 
     render() {
-        const {work,head,dispatchwork,dispatchhead} = this.props
+        const {work,head,dispatchwork,dispatchhead,response} = this.props
         return (
             <div >
                 {
@@ -15,6 +15,18 @@ class HomeComponent extends Component {
                         {head}
                     </div>
                 } 
+                <ul>
+                {
+                    !response ?
+                    "NEWS_LOAGIND" :
+                        response.map(data => {
+                            <div>
+                                {data.title}
+                            </div>
+                        })
+                        
+                }
+                </ul>
                 <div onClick={dispatchwork}> 点我生成WORK </div>
                 <div onClick={dispatchhead}> 点我生成HEAD </div>
             </div>

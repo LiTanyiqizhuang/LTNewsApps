@@ -5,13 +5,16 @@ import getNewsData from '../loadnews'
 
 const mapStateToProps = state => ({
     work: state.changetest.work,
-    head: state.changetest.head
+    head: state.changetest.head,
+    type: state.getnews.type,
+    status: state.getnews.status,
+    response: state.getnews.response,
+    errorcode: state.getnews.errorcode,
 })
 
 const mapDispatchToProps = dispatch => ({
     dispatchwork: () => {
-        let what = getNewsData()
-        dispatch(changework('您好'))
+        getNewsData(dispatch)
     },
     dispatchhead: () => dispatch(changehead('再见'))
 })
