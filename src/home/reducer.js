@@ -34,7 +34,16 @@ export function getnews(state = {
     response: [],
     errorcode: 0
 }, action) {
+    let {status, response, errorcode} = action
+    if(!status) status = state.status
+    if(!response) response = state.response
+    if(!errorcode) errorcode = state.errorcode
+
     return {
-        ...action
+        ...state,
+        type: action.type,
+        status: status,
+        response: response,
+        errorcode: errorcode
     }
 }

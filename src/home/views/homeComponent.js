@@ -7,17 +7,9 @@ class HomeComponent extends Component {
         const {work,head,dispatchwork,dispatchhead,response} = this.props
         return (
             <div >
-                {
-                    !work && !head ? 
-                    "loading" : 
-                    <div>
-                        {work}
-                        {head}
-                    </div>
-                } 
                 <ul>
                 {
-                    !response ?
+                    !response?
                     "NEWS_LOAGIND" :
                         response.map(data => {
                             return(
@@ -29,8 +21,8 @@ class HomeComponent extends Component {
                         
                 }
                 </ul>
-                <div onClick={dispatchwork}> 点我生成WORK </div>
-                <div onClick={dispatchhead}> 点我生成HEAD </div>
+                <div onClick={dispatchwork}> 点我获取列表</div>
+                <div onClick={dispatchhead}>  </div>
             </div>
         );
     }
@@ -41,7 +33,11 @@ HomeComponent.propTypes = {
     work: PropTypes.string.isRequired,
     head: PropTypes.string.isRequired,
     dispatchwork: PropTypes.func.isRequired,
-    dispatchhead: PropTypes.func.isRequired
+    dispatchhead: PropTypes.func.isRequired,
+    type: PropTypes.string.isRequired,
+    status: PropTypes.string.isRequired,
+    errorcode: PropTypes.number.isRequired,
+    response: PropTypes.array.isRequired
 }
 
 export default HomeComponent;
