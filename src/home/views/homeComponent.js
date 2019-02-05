@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types'
+import NewsListitem from './newlistitem';
+
 
 class HomeComponent extends Component {
 
@@ -14,7 +16,7 @@ class HomeComponent extends Component {
                         response.map(data => {
                             return(
                             <li key={data.id}>
-                                {data.title}
+                                <NewsListitem></NewsListitem>
                             </li>
                             )
                         })
