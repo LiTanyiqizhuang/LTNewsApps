@@ -34,10 +34,14 @@ export function getnews(state = {
     response: [],
     errorcode: 0
 }, action) {
-    let {status, response, errorcode} = action
-    if(!status) status = state.status
-    if(!response) response = state.response
-    if(!errorcode) errorcode = state.errorcode
+    let {
+        status,
+        response,
+        errorcode
+    } = action
+    if (!status) status = state.status
+    if (!response) response = state.response
+    if (!errorcode) errorcode = state.errorcode
 
     return {
         ...state,

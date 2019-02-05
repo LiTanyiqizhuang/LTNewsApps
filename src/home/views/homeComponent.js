@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 class HomeComponent extends Component {
 
     render() {
-        const {work,head,dispatchwork,dispatchhead,response} = this.props
+        const {dispatchwork,dispatchhead,response} = this.props
         return (
             <div >
                 <ul>
@@ -13,7 +13,7 @@ class HomeComponent extends Component {
                     "NEWS_LOAGIND" :
                         response.map(data => {
                             return(
-                            <li>
+                            <li key={data.id}>
                                 {data.title}
                             </li>
                             )
@@ -30,8 +30,6 @@ class HomeComponent extends Component {
 }
 
 HomeComponent.propTypes = {
-    work: PropTypes.string.isRequired,
-    head: PropTypes.string.isRequired,
     dispatchwork: PropTypes.func.isRequired,
     dispatchhead: PropTypes.func.isRequired,
     type: PropTypes.string.isRequired,
