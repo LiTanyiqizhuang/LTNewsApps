@@ -6,10 +6,9 @@ import {
 } from '@material-ui/core/styles';
 import {
     REQUESTING,
-    REQUEST_SUCCESS,
     REQUEST_ERROR
 } from '../actionTypes'
-import { red } from '@material-ui/core/colors';
+import Grid from '@material-ui/core/Grid';
 
 const styles = {
     loading: {
@@ -44,8 +43,12 @@ class HomeComponent extends Component {
     render() {
         const {response, classes, status} = this.props
         return (
-            <div >
-                <ul >
+            <Grid
+                container
+                alignItems='center'
+                direction='column'
+                justify='center'>
+                <ul>
                 {
                     !response?
                     "NEWS_LOAGIND" :
@@ -62,7 +65,7 @@ class HomeComponent extends Component {
                 {
                     changestatus(status, classes)
                 }
-            </div>
+            </Grid>
         );
     }
 
