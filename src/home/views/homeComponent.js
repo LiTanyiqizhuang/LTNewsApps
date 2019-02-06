@@ -1,30 +1,67 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types'
 import NewsListitem from './newlistitem';
+import {
+    withStyles
+} from '@material-ui/core/styles';
+import {
+    REQUESTING,
+    REQUEST_SUCCESS,
+    REQUEST_ERROR
+} from '../actionTypes'
+import { red } from '@material-ui/core/colors';
 
+const styles = {
+    loading: {
+        color: '#ffffff',
+    },
+    error: {
+        color: '#b52e24',
+    },
+};
+
+
+function changestatus(status, clasess) {
+    switch (status){
+        case REQUESTING:
+            return(
+                <div className={clasess.loading}>加载中</div>
+            )
+        case REQUEST_ERROR:
+            return(
+                <div className={clasess.error}>加载失败</div>
+            )
+    }
+}  
 
 class HomeComponent extends Component {
 
+    componentWillMount(){
+        const {dispatchwork} = this.props
+        dispatchwork()
+    }
+
     render() {
-        const {dispatchwork,dispatchhead,response} = this.props
+        const {response, classes, status} = this.props
         return (
             <div >
-                <ul>
+                <ul >
                 {
                     !response?
                     "NEWS_LOAGIND" :
                         response.map(data => {
                             return(
                             <li key={data.id}>
-                                <NewsListitem></NewsListitem>
+                                <NewsListitem new={data}></NewsListitem>
                             </li>
                             )
                         })
                         
                 }
                 </ul>
-                <div onClick={dispatchwork}> 点我获取列表</div>
-                <div onClick={dispatchhead}>  </div>
+                {
+                    changestatus(status, classes)
+                }
             </div>
         );
     }
@@ -40,4 +77,4 @@ HomeComponent.propTypes = {
     response: PropTypes.array.isRequired
 }
 
-export default HomeComponent;
+export default withStyles(styles)(HomeComponent);

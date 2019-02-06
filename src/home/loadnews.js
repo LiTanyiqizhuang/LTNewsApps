@@ -23,6 +23,6 @@ export default function getNewsData(dispatch) {
     .then(jsonResponse => {
         let news = jsonResponse
         console.log(news)
-        dispatch(requestnewssuccess(news))
+        if(news) dispatch(requestnewssuccess(news))
     })
 }

@@ -36,10 +36,20 @@ import Typography from '@material-ui/core/Typography';
 
 const styles = {
     card: {
-        maxWidth: 500,
+        maxWidth: 400,
+        margin: 20,
+        background: "#32333a",
     },
     media: {
-        height: 140,
+        height: 200,
+        margin: 2,
+    },
+    tilte: {
+        color: "#ffffff"
+    },
+
+    summary: {
+        color: "#ffffff"
     },
 };
 
@@ -49,23 +59,23 @@ class NewsListitem extends Component {
     render() {
 
         const { classes } = this.props;
+        const { content, cover, title, summary} = this.props.new
 
         return (
-        <Card className={classes.card}>
+        <Card className={classes.card} justify="center">
             <CardActionArea>
                 <CardMedia
                 className={classes.media}
-                image="/static/images/cards/contemplative-reptile.jpg"
-                title="Contemplative Reptile"
+                image={cover}
+                title={title}
                 />
                 <CardContent>
-                <Typography gutterBottom variant="h5" component="h2">
-                    Lizard
-                </Typography>
-                <Typography component="p">
-                    Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging
-                    across all continents except Antarctica
-                </Typography>
+                    <Typography className={classes.tilte} gutterBottom variant="h10" component="h1">
+                        {title}
+                    </Typography>
+                    <Typography className={classes.summary} component="p">
+                        {summary}
+                    </Typography>
                 </CardContent>
             </CardActionArea>
         </Card>
