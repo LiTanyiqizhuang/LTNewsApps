@@ -26,6 +26,7 @@ import React, {
 import {
     withStyles
 } from '@material-ui/core/styles';
+import Avatar from '@material-ui/core/Avatar';
 import Card from '@material-ui/core/Card';
 import CardActionArea from '@material-ui/core/CardActionArea';
 import CardContent from '@material-ui/core/CardContent';
@@ -49,6 +50,10 @@ const styles = {
     summary: {
         color: "#ffffff"
     },
+
+    bigAvatar: {
+        margin: 10,
+    },
 };
 
 
@@ -57,11 +62,13 @@ class NewsListitem extends Component {
     render() {
 
         const { classes } = this.props;
-        const { content, cover, title, summary} = this.props.new
+        const { content, cover, title, summary, author_avatar} = this.props.new
 
         return (
         <Card className={classes.card} justify="center">
             <CardActionArea>
+                <Avatar alt="Remy Sharp" src={author_avatar} className={classes.bigAvatar} />
+    
                 <CardMedia
                 className={classes.media}
                 image={cover}
