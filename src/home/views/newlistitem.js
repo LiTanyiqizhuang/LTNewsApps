@@ -75,7 +75,7 @@ class NewsListitem extends Component {
                 title={title}
                 />
                 <CardContent>
-                    <Typography className={classes.tilte} gutterBottom variant="h10" component="h1">
+                    <Typography className={classes.tilte} component="p">
                         {title}
                     </Typography>
                     <Typography className={classes.summary} component="p">

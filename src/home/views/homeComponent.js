@@ -9,6 +9,10 @@ import {
     REQUEST_ERROR
 } from '../actionTypes'
 import Grid from '@material-ui/core/Grid';
+import GridList from '@material-ui/core/GridList';
+import GridListTile from '@material-ui/core/GridListTile';
+import GridListTileBar from '@material-ui/core/GridListTileBar';
+import ListSubheader from '@material-ui/core/ListSubheader';
 
 const styles = {
     loading: {
@@ -16,6 +20,12 @@ const styles = {
     },
     error: {
         color: '#b52e24',
+    },
+    root: {
+        display: 'flex',
+        flexWrap: 'wrap',
+        justifyContent: 'space-around',
+        overflow: 'hidden',
     },
 };
 
@@ -44,11 +54,19 @@ class HomeComponent extends Component {
         const {response, classes, status} = this.props
         return (
             <Grid
+                className={classes.root}
                 container
                 alignItems='center'
                 direction='column'
                 justify='center'>
-                <ul>
+
+                <GridList  className={classes.gridList}>
+                        {response.map(data => (
+                            <NewsListitem key={data.id} new={data}></NewsListitem>
+                        ))}
+                </GridList>
+
+                {/* <ul>
                 {
                     !response?
                     "NEWS_LOAGIND" :
@@ -61,7 +79,7 @@ class HomeComponent extends Component {
                         })
                         
                 }
-                </ul>
+                </ul> */}
                 {
                     changestatus(status, classes)
                 }
