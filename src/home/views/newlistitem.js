@@ -35,7 +35,7 @@ import Typography from '@material-ui/core/Typography';
 
 const styles = {
     card: {
-        maxWidth: 400,
+        width: 400,
         margin: 20,
         background: "#32333a",
     },

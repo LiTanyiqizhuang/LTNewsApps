@@ -27,6 +27,9 @@ const styles = {
         justifyContent: 'space-around',
         overflow: 'hidden',
     },
+    gridList: {
+        maxWidth: '100',
+    },
 };
 
 
@@ -60,26 +63,11 @@ class HomeComponent extends Component {
                 direction='column'
                 justify='center'>
 
-                <GridList  className={classes.gridList}>
+                <GridList className={classes.gridList}>
                         {response.map(data => (
-                            <NewsListitem key={data.id} new={data}></NewsListitem>
+                            <NewsListitem  key={data.id} new={data}></NewsListitem>
                         ))}
                 </GridList>
-
-                {/* <ul>
-                {
-                    !response?
-                    "NEWS_LOAGIND" :
-                        response.map(data => {
-                            return(
-                            <li key={data.id}>
-                                <NewsListitem new={data}></NewsListitem>
-                            </li>
-                            )
-                        })
-                        
-                }
-                </ul> */}
                 {
                     changestatus(status, classes)
                 }
