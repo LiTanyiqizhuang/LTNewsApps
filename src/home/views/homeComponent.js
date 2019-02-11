@@ -10,9 +10,6 @@ import {
 } from '../actionTypes'
 import Grid from '@material-ui/core/Grid';
 import GridList from '@material-ui/core/GridList';
-import GridListTile from '@material-ui/core/GridListTile';
-import GridListTileBar from '@material-ui/core/GridListTileBar';
-import ListSubheader from '@material-ui/core/ListSubheader';
 
 const styles = {
     loading: {
@@ -65,7 +62,7 @@ class HomeComponent extends Component {
 
                 <GridList className={classes.gridList}>
                         {response.map(data => (
-                            <NewsListitem  key={data.id} new={data}></NewsListitem>
+                            <NewsListitem  key={data.id} new={data} ></NewsListitem>
                         ))}
                 </GridList>
                 {

@@ -32,6 +32,7 @@ import CardActionArea from '@material-ui/core/CardActionArea';
 import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Typography from '@material-ui/core/Typography';
+import Slide from '@material-ui/core/Slide';
 
 const styles = {
     card: {
@@ -65,25 +66,28 @@ class NewsListitem extends Component {
         const { content, cover, title, summary, author_avatar} = this.props.new
 
         return (
-        <Card className={classes.card} justify="center">
-            <CardActionArea>
-                <Avatar alt="Remy Sharp" src={author_avatar} className={classes.bigAvatar} />
-    
-                <CardMedia
-                className={classes.media}
-                image={cover}
-                title={title}
-                />
-                <CardContent>
-                    <Typography className={classes.tilte} component="p">
-                        {title}
-                    </Typography>
-                    <Typography className={classes.summary} component="p">
-                        {summary}
-                    </Typography>
-                </CardContent>
-            </CardActionArea>
-        </Card>
+        <Slide in={true}
+            >
+            <Card className={classes.card} justify="center">
+                <CardActionArea>
+                    <Avatar alt="Remy Sharp" src={author_avatar} className={classes.bigAvatar} />
+        
+                    <CardMedia
+                    className={classes.media}
+                    image={cover}
+                    title={title}
+                    />
+                    <CardContent>
+                        <Typography className={classes.tilte} component="p">
+                            {title}
+                        </Typography>
+                        <Typography className={classes.summary} component="p">
+                            {summary}
+                        </Typography>
+                    </CardContent>
+                </CardActionArea>
+            </Card>
+        </Slide>   
 
         )
     }
