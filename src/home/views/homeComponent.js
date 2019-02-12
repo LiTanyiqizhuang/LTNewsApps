@@ -25,7 +25,7 @@ const styles = {
         overflow: 'hidden',
     },
     gridList: {
-        maxWidth: '100',
+
     },
 };
 
@@ -55,16 +55,17 @@ class HomeComponent extends Component {
         return (
             <Grid
                 className={classes.root}
-                container
-                alignItems='center'
-                direction='column'
-                justify='center'>
-
-                <GridList className={classes.gridList}>
-                        {response.map(data => (
-                            <NewsListitem  key={data.id} new={data} ></NewsListitem>
-                        ))}
-                </GridList>
+                container>
+                <Grid container
+                justify='center'
+                direction='row-reverse'
+                >
+                    {response.map(data => (
+                        <Grid item className={classes.gridList}>
+                            <NewsListitem  key={data.id} new={data}></NewsListitem>
+                        </Grid> 
+                    ))}
+                </Grid>
                 {
                     changestatus(status, classes)
                 }
