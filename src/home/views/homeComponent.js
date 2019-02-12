@@ -9,7 +9,7 @@ import {
     REQUEST_ERROR
 } from '../actionTypes'
 import Grid from '@material-ui/core/Grid';
-import GridList from '@material-ui/core/GridList';
+import Topbar from './topbar'
 
 const styles = {
     loading: {
@@ -23,12 +23,12 @@ const styles = {
         flexWrap: 'wrap',
         justifyContent: 'space-around',
         overflow: 'hidden',
+        margin: '100px auto auto auto',
     },
     gridList: {
 
     },
 };
-
 
 function changestatus(status, clasess) {
     switch (status){
@@ -53,6 +53,8 @@ class HomeComponent extends Component {
     render() {
         const {response, classes, status} = this.props
         return (
+            <div>
+            <Topbar className={classes.topbar}></Topbar>
             <Grid
                 className={classes.root}
                 container>
@@ -70,6 +72,7 @@ class HomeComponent extends Component {
                     changestatus(status, classes)
                 }
             </Grid>
+            </div>
         );
     }
 
