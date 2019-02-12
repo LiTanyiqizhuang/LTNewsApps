@@ -32,6 +32,11 @@ import CardActionArea from '@material-ui/core/CardActionArea';
 import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Typography from '@material-ui/core/Typography';
+import Dialog from '@material-ui/core/Dialog';
+import DialogActions from '@material-ui/core/DialogActions';
+import DialogContent from '@material-ui/core/DialogContent';
+import DialogContentText from '@material-ui/core/DialogContentText';
+import DialogTitle from '@material-ui/core/DialogTitle';
 import Slide from '@material-ui/core/Slide';
 
 const styles = {
@@ -55,10 +60,41 @@ const styles = {
     bigAvatar: {
         margin: 10,
     },
+    newsDialog: {
+        background: "#32333a",
+        color: "#ffffff"
+    },
 };
 
 
+function Transition(props) {
+  return <Slide direction="up" {...props} />;
+}
+
+
 class NewsListitem extends Component {
+
+    constructor(props){
+        super(props)
+        this.state = {
+            open: false,
+            maxWidth: 'md'
+        }
+        this.handleDialog = this.handleDialog.bind(this)
+        this.handleClose = this.handleClose.bind(this)
+    }
+
+    handleDialog() {
+        this.setState(prevState => ({
+            open: !prevState.open
+        }))
+    }
+
+    handleClose() {
+        this.setState(prevState => ({
+            open: false
+        }))
+    }
 
     render() {
 
@@ -68,25 +104,49 @@ class NewsListitem extends Component {
         return (
         <Slide in={true}
             >
-            <Card className={classes.card} justify="center">
-                <CardActionArea>
-                    <Avatar alt="Remy Sharp" src={author_avatar} className={classes.bigAvatar} />
-        
-                    <CardMedia
-                    className={classes.media}
-                    image={cover}
-                    title={title}
-                    />
-                    <CardContent>
-                        <Typography className={classes.tilte} component="p">
+            <div>
+                <Card onClick={this.handleDialog} className={classes.card} justify="center">
+                    <CardActionArea>
+                        <Avatar alt="Remy Sharp" src={author_avatar} className={classes.bigAvatar} />
+            
+                        <CardMedia
+                        className={classes.media}
+                        image={cover}
+                        title={title}
+                        />
+                        <CardContent>
+                            <Typography className={classes.tilte} component="p">
+                                {title}
+                            </Typography>
+                            <Typography className={classes.summary} component="p">
+                                {summary}
+                            </Typography>
+                        </CardContent>
+                    </CardActionArea>
+                </Card>
+                <Dialog
+                    TransitionComponent={Transition}
+                    open={this.state.open}
+                    scroll='body'
+                    onClose={this.handleClose}
+                    maxWidth={this.state.maxWidth}
+                    aria-labelledby="scroll-dialog-title"
+                    >
+                    <DialogTitle 
+                        className={classes.newsDialog}
+                        id="scroll-dialog-title">
+                        <h2 className={classes.tilte} component="h1">
                             {title}
-                        </Typography>
-                        <Typography className={classes.summary} component="p">
-                            {summary}
-                        </Typography>
-                    </CardContent>
-                </CardActionArea>
-            </Card>
+                        </h2>
+                    </DialogTitle>
+                    <DialogContent
+                        className={classes.newsDialog}>
+                            <Typography className={classes.tilte} component="p" dangerouslySetInnerHTML={{ __html: content }} >
+                                {/* 渲染html  dangerouslySetInnerHTML*/}
+                            </Typography>
+                    </DialogContent>
+                </Dialog>
+            </div>
         </Slide>   
 
         )

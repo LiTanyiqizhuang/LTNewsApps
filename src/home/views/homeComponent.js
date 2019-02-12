@@ -63,8 +63,8 @@ class HomeComponent extends Component {
                 direction='row-reverse'
                 >
                     {response.map(data => (
-                        <Grid item className={classes.gridList}>
-                            <NewsListitem  key={data.id} new={data}></NewsListitem>
+                        <Grid item className={classes.gridList} key={data.id}>
+                            <NewsListitem   new={data}></NewsListitem>
                         </Grid> 
                     ))}
                 </Grid>
