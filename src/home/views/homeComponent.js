@@ -23,11 +23,16 @@ const styles = {
         flexWrap: 'wrap',
         justifyContent: 'space-around',
         overflow: 'hidden',
-        margin: '100px auto auto auto',
+        paddingTop: '100px',
     },
     gridList: {
 
     },
+    first: {
+        flexGrow: 1,
+        width: "100%",
+        backgroundColor: '#060606'
+    }
 };
 
 function changestatus(status, clasess) {
@@ -53,27 +58,27 @@ class HomeComponent extends Component {
     render() {
         const {response, classes, status} = this.props
         return (
-            <div>
-            <Topbar  className={classes.topbar}></Topbar>
-            <Grid
-                className={classes.root}
-                container>
-                <Grid 
-                    xs={8}
-                    container
-                    justify='center'
-                    direction='row-reverse'
-                >
-                    {response.map(data => (
-                        <Grid item className={classes.gridList} key={data.id}>
-                            <NewsListitem   new={data}></NewsListitem>
-                        </Grid> 
-                    ))}
+            <div className={classes.first}>
+                <Topbar  className={classes.topbar}></Topbar>
+                <Grid
+                    className={classes.root}
+                    container>
+                    <Grid
+                        xs={8}
+                        container
+                        justify='center'
+                        direction='row-reverse'
+                    >
+                        {response.map(data => (
+                            <Grid item className={classes.gridList} key={data.id}>
+                                <NewsListitem new={data}></NewsListitem>
+                            </Grid> 
+                        ))}
+                    </Grid>
+                    {
+                        changestatus(status, classes)
+                    }
                 </Grid>
-                {
-                    changestatus(status, classes)
-                }
-            </Grid>
             </div>
         );
     }
