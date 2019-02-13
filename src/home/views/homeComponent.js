@@ -49,7 +49,7 @@ function changestatus(status, clasess) {
 }  
 
 class HomeComponent extends Component {
-
+    
     componentWillMount(){
         const {dispatchwork} = this.props
         dispatchwork()
