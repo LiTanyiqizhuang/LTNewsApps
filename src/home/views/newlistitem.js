@@ -38,6 +38,9 @@ import DialogContent from '@material-ui/core/DialogContent';
 import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import Slide from '@material-ui/core/Slide';
+import List from '@material-ui/core/List';
+import ListItem from '@material-ui/core/ListItem';
+import ListItemText from '@material-ui/core/ListItemText';
 
 const styles = {
     card: {
@@ -47,7 +50,6 @@ const styles = {
     },
     media: {
         height: 200,
-        margin: 2,
     },
     tilte: {
         color: "#ffffff"
@@ -58,7 +60,6 @@ const styles = {
     },
 
     bigAvatar: {
-        margin: 10,
     },
     newsDialog: {
         background: "#32333a",
@@ -107,20 +108,25 @@ class NewsListitem extends Component {
             <div>
                 <Card onClick={this.handleDialog} className={classes.card} justify="center">
                     <CardActionArea>
-                        <Avatar alt="Remy Sharp" src={author_avatar} className={classes.bigAvatar} />
-            
+                        {/* <Avatar alt="Remy Sharp" src={author_avatar} className={classes.bigAvatar} /> */}
                         <CardMedia
                         className={classes.media}
                         image={cover}
                         title={title}
-                        />
+                        >
+                        </CardMedia>
                         <CardContent>
-                            <Typography className={classes.tilte} component="p">
-                                {title}
-                            </Typography>
-                            <Typography className={classes.summary} component="p">
-                                {summary}
-                            </Typography>
+                            <ListItem>
+                                <Avatar alt="Remy Sharp" src={author_avatar} className={classes.bigAvatar}>
+                                </Avatar>
+                                <ListItemText>
+                                    
+                                    <Typography primary className={classes.tilte} component="h1">
+                                        {title}
+                                    </Typography>
+                                
+                                </ListItemText>
+                            </ListItem>
                         </CardContent>
                     </CardActionArea>
                 </Card>
