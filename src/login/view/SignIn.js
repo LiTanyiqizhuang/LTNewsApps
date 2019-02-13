@@ -12,7 +12,7 @@ import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
 import withStyles from '@material-ui/core/styles/withStyles';
-
+import logo from './res/logo_LT.svg'
 const styles = theme => ({
     main: {
         width: 'auto',
@@ -34,7 +34,7 @@ const styles = theme => ({
     },
     avatar: {
         margin: theme.spacing.unit,
-        backgroundColor: theme.palette.secondary.main,
+        // backgroundColor: theme.palette.secondary.main,
     },
     form: {
         width: '100%', // Fix IE 11 issue.
@@ -52,7 +52,7 @@ function SignIn(props) {
         <main className={classes.main}>
             <Paper className={classes.paper}>
                 <Avatar className={classes.avatar}>
-                    <LockOutlinedIcon />
+                    <img src={logo}/>
                 </Avatar>
                 <Typography component="h1" variant="h5">
                     Sign in
