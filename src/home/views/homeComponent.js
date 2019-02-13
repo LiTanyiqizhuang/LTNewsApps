@@ -54,13 +54,15 @@ class HomeComponent extends Component {
         const {response, classes, status} = this.props
         return (
             <div>
-            <Topbar className={classes.topbar}></Topbar>
+            <Topbar  className={classes.topbar}></Topbar>
             <Grid
                 className={classes.root}
                 container>
-                <Grid container
-                justify='center'
-                direction='row-reverse'
+                <Grid 
+                    xs={8}
+                    container
+                    justify='center'
+                    direction='row-reverse'
                 >
                     {response.map(data => (
                         <Grid item className={classes.gridList} key={data.id}>
