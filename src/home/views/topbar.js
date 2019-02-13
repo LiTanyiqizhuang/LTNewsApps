@@ -87,7 +87,7 @@ class TopBar extends Component {
                                 <Typography 
                                     variant="h6" 
                                     color="inherit"  >
-                                    News
+                                    LT News
                                 </Typography>
                             </Grid>
                             <Grid item>
