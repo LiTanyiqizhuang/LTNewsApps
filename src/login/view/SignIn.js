@@ -13,6 +13,7 @@ import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
 import withStyles from '@material-ui/core/styles/withStyles';
 import logo from './res/logo_LT.svg'
+import { Link } from 'react-router-dom';
 
 const styles = theme => ({
     main: {
@@ -77,8 +78,9 @@ function SignIn(props) {
                         variant="outlined"
                         color="primary"
                         className={classes.submit}
-                    >
-                        Sign in
+                        >
+                        <Link to='/'>Sign in</Link>
+                        
                     </Button>
                 </form>
             </Paper>
