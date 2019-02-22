@@ -15,18 +15,19 @@ import IconButton from '@material-ui/core/IconButton';
 import InputBase from '@material-ui/core/InputBase';
 import SearchIcon from '@material-ui/icons/Search';
 import { fade } from '@material-ui/core/styles/colorManipulator';
+import {Router, Route, Link} from 'react-router-dom'
 // import MenuIcon from '@material-ui/icons/Menu';
 
 const styles = theme => ({
     root: {
-      flexGrow: 1,
+        flexGrow: 1,
     },
     grow: {
-      flexGrow: 1,
+        flexGrow: 1,
     },
     menuButton: {
-      marginLeft: -12,
-      marginRight: 20,
+        marginLeft: -12,
+        marginRight: 20,
     },
     topbar: {
         background: '#060606',
@@ -35,12 +36,12 @@ const styles = theme => ({
     inputRoot: {
         color: 'inherit',
         width: '100%',
-      },
+    },
     inputInput: {
         paddingLeft: 2 * 30,
         width: '100%',
         [theme.breakpoints.up('md')]: {
-          width: 200,
+            width: 200,
         },
     },
     searchIcon: {
@@ -68,7 +69,7 @@ const styles = theme => ({
         },
     },
 });
-  
+
 
 class TopBar extends Component {
     
@@ -129,7 +130,7 @@ class TopBar extends Component {
                             </Grid>
                         </Grid>
                         
-                        <Button color="inherit">Login</Button>
+                        <Button color="inherit"><Link to="/login">Login</Link></Button>
                     </Toolbar>
                 </AppBar>
             </div>
