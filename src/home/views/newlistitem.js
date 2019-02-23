@@ -69,7 +69,7 @@ const styles = theme => ({
 
 
 function Transition(props) {
-  return <Slide direction="up" {...props} />;
+    return <Slide direction="up" {...props} />;
 }
 
 

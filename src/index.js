@@ -5,6 +5,8 @@ import { Provider } from 'react-redux'
 import * as serviceWorker from './serviceWorker';
 import appReducer from './home/index'
 import HomeContainer from './home/views/homeContainer'
+import SignIn from './login/view/SignIn'
+import { BrowserRouter,Switch, Route, Link } from 'react-router-dom'
 
 const logger = store => next => action => {
     console.log('dispatching', action)
@@ -25,7 +27,13 @@ const store = createStore(appReducer, applyMiddleware(logger, crashReporter))
 
 ReactDOM.render(
     <Provider store={store}>
-        <HomeContainer />
+        <BrowserRouter>
+        <Switch>
+            <Route path="/" exact component={HomeContainer}/>
+                {/* <HomeContainer /> */}
+            <Route path="/login" component={SignIn} />
+        </Switch>
+        </BrowserRouter>
     </Provider>,
     document.getElementById('home')
 );
