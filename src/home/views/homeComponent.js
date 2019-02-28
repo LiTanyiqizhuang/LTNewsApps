@@ -65,9 +65,6 @@ class HomeComponent extends Component {
                 <Grid
                     className={classes.root}
                     container>
-                    <div>
-                        <Route path="/connect" Component={Connect}></Route>
-                    </div>
                     <Grid
                         xs={8}
                         container
@@ -84,6 +81,11 @@ class HomeComponent extends Component {
                         changestatus(status, classes)
                     }
                 </Grid>
+                
+                <div>
+                    <Route path="/connect" Component={Connect}></Route>
+                </div>
+                
             </div>
         );
     }
