@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types'
+import { BrowserRouter,Switch, Route, Link } from 'react-router-dom'
 import NewsListitem from './newlistitem';
 import {
     withStyles
@@ -10,6 +11,7 @@ import {
 } from '../actionTypes'
 import Grid from '@material-ui/core/Grid';
 import Topbar from './topbar'
+import Connect from '../../connect/views/connect'
 
 const styles = {
     loading: {
@@ -63,6 +65,9 @@ class HomeComponent extends Component {
                 <Grid
                     className={classes.root}
                     container>
+                    <div>
+                        <Route path="/connect" Component={Connect}></Route>
+                    </div>
                     <Grid
                         xs={8}
                         container

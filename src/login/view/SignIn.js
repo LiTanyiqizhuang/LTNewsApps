@@ -48,7 +48,7 @@ const styles = theme => ({
 });
 
 function SignIn(props) {
-    const { classes } = props;
+    const { classes} = props;
 
     return (
         <main className={classes.main}>
@@ -79,7 +79,7 @@ function SignIn(props) {
                         color="primary"
                         className={classes.submit}
                         >
-                        <Link to='/'>Sign in</Link>
+                        <Link to='/code=sdjflx'>Sign in</Link>
                         
                     </Button>
                 </form>

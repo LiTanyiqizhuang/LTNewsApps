@@ -7,6 +7,7 @@ import appReducer from './home/index'
 import HomeContainer from './home/views/homeContainer'
 import SignIn from './login/view/SignIn'
 import { BrowserRouter,Switch, Route, Link } from 'react-router-dom'
+import Connect from './connect/views/connect'
 
 const logger = store => next => action => {
     console.log('dispatching', action)
@@ -17,9 +18,9 @@ const logger = store => next => action => {
 
 const crashReporter = store => next => action => {
     try {
-    return next(action)
+        return next(action)
     } catch (err) {
-    console.error('Caught an exception!', err)
+        console.error('Caught an exception!', err)
     }
 }
 
@@ -32,6 +33,7 @@ ReactDOM.render(
             <Route path="/" exact component={HomeContainer}/>
                 {/* <HomeContainer /> */}
             <Route path="/login" component={SignIn} />
+            <Route path="/connect" component={Connect} />
         </Switch>
         </BrowserRouter>
     </Provider>,
