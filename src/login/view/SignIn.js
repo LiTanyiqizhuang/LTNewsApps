@@ -79,7 +79,7 @@ function SignIn(props) {
                         color="primary"
                         className={classes.submit}
                         >
-                        <Link to='/code=sdjflx'>Sign in</Link>
+                        <Link to='/'>Sign in</Link>
                         
                     </Button>
                 </form>
