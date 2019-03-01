@@ -12,6 +12,7 @@ import {
 import Grid from '@material-ui/core/Grid';
 import Topbar from './topbar'
 import Connect from '../../connect/views/connect'
+import SignIn from '../../login/view/SignIn'
 
 const styles = {
     loading: {
@@ -58,35 +59,36 @@ class HomeComponent extends Component {
     }
 
     render() {
-        const {response, classes, status} = this.props
+        const {response, classes, status, match} = this.props
         return (
-            <div className={classes.first}>
-                <Topbar  className={classes.topbar}></Topbar>
-                <Grid
-                    className={classes.root}
-                    container>
+            
+            <BrowserRouter>
+                <div className={classes.first}>
+                    <Topbar  className={classes.topbar} match={match}></Topbar>
                     <Grid
-                        xs={8}
-                        container
-                        justify='center'
-                        direction='row-reverse'
-                    >
-                        {response.map(data => (
-                            <Grid item className={classes.gridList} key={data.id}>
-                                <NewsListitem new={data}></NewsListitem>
-                            </Grid> 
-                        ))}
+                        className={classes.root}
+                        container>
+                        <Grid
+                            xs={8}
+                            container
+                            justify='center'
+                            direction='row-reverse'>
+                            {response.map(data => (
+                                <Grid item className={classes.gridList} key={data.id}>
+                                    <NewsListitem new={data}></NewsListitem>
+                                </Grid> 
+                            ))}
+                        </Grid>
+                        {
+                            changestatus(status, classes)
+                        }
                     </Grid>
-                    {
-                        changestatus(status, classes)
-                    }
-                </Grid>
+                    <Route path="/connect" component={Connect}/>
                 
-                <div>
-                    <Route path="/connect" Component={Connect}></Route>
+                    {/* <Route path={`${match.url}/connect`} exact component={Connect}/> */}
+
                 </div>
-                
-            </div>
+            </BrowserRouter>
         );
     }
 

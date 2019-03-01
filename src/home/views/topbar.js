@@ -17,6 +17,7 @@ import SearchIcon from '@material-ui/icons/Search';
 import { fade } from '@material-ui/core/styles/colorManipulator';
 import {Router, Route, Link} from 'react-router-dom'
 // import MenuIcon from '@material-ui/icons/Menu';
+import Connect from '../../connect/views/connect'
 
 const styles = theme => ({
     root: {
@@ -74,7 +75,7 @@ const styles = theme => ({
 class TopBar extends Component {
     
     render(){
-        const {classes} = this.props
+        const {classes, match} = this.props
         return(
             <div className={classes.root}>
                 <AppBar className={classes.topbar} position="fixed">
@@ -132,6 +133,7 @@ class TopBar extends Component {
                         
                         <Button color="inherit"><Link to="/login">Login</Link></Button>
                     </Toolbar>
+                    
                 </AppBar>
             </div>
         )

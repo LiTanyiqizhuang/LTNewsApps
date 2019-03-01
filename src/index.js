@@ -29,12 +29,13 @@ const store = createStore(appReducer, applyMiddleware(logger, crashReporter))
 ReactDOM.render(
     <Provider store={store}>
         <BrowserRouter>
-        <Switch>
-            <Route path="/" exact component={HomeContainer}/>
-                {/* <HomeContainer /> */}
-            <Route path="/login" component={SignIn} />
-            <Route path="/connect" component={Connect} />
-        </Switch>
+            {/* <Switch> */}
+            <div>
+                <Route path="/" exact component={HomeContainer}/>
+                <Route path="/login" component={SignIn} />
+            </div>
+            {/* <HomeContainer/> */}
+            {/* </Switch> */}
         </BrowserRouter>
     </Provider>,
     document.getElementById('home')
