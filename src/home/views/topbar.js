@@ -15,7 +15,7 @@ import IconButton from '@material-ui/core/IconButton';
 import InputBase from '@material-ui/core/InputBase';
 import SearchIcon from '@material-ui/icons/Search';
 import { fade } from '@material-ui/core/styles/colorManipulator';
-import {Router, Route, Link} from 'react-router-dom'
+import {Router, Route, Link, NavLink} from 'react-router-dom'
 // import MenuIcon from '@material-ui/icons/Menu';
 import Connect from '../../connect/views/connect'
 
@@ -131,7 +131,9 @@ class TopBar extends Component {
                             </Grid>
                         </Grid>
                         
-                        <Button color="inherit"><Link to="/login">Login</Link></Button>
+                        <Button color="inherit">
+                        <NavLink to="/login">Login</NavLink>
+                        </Button>
                     </Toolbar>
                     
                 </AppBar>
