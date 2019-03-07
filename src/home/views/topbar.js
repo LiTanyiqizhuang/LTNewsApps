@@ -110,7 +110,7 @@ class TopBar extends Component {
                                 <Typography 
                                     variant="p" 
                                     color="inherit"  >
-                                    <Link to="/connect">联系我们</Link>
+                                    <Link to={`${match.url}connect`}>联系我们</Link>
                                 </Typography>
                             </Grid>
 
@@ -137,6 +137,7 @@ class TopBar extends Component {
                     </Toolbar>
                     
                 </AppBar>
+                
             </div>
         )
     }

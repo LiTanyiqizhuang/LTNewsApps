@@ -18,10 +18,11 @@ class Connect extends React.Component {
             <div className={classes.loading}>
                 访问我们的主页 https://github.com/LiTanyiqizhuang/LTNewsApps
                 联系我们 QQ: 867872541 1012956221
-                {match.params.id}
+                {/* {match.params.id} */}
             </div>
         )
     }
+    
 }
 
 export default withStyles(styles)(Connect);

@@ -61,10 +61,8 @@ class HomeComponent extends Component {
     render() {
         const {response, classes, status, match} = this.props
         return (
-            
-            <BrowserRouter>
                 <div className={classes.first}>
-                    <Topbar  className={classes.topbar} match={match}></Topbar>
+                    <Topbar className={classes.topbar} match={match}></Topbar>
                     <Grid
                         className={classes.root}
                         container>
@@ -83,12 +81,10 @@ class HomeComponent extends Component {
                             changestatus(status, classes)
                         }
                     </Grid>
-                    <Route path="/connect" component={Connect}/>
-                
-                    {/* <Route path={`${match.url}/connect`} exact component={Connect}/> */}
+                    {/* <Connect></Connect> */}
+                    <Route path={`${match.path}connect`} component={Connect}/>
 
                 </div>
-            </BrowserRouter>
         );
     }
 
